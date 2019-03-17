@@ -12,6 +12,8 @@
                  [ring/ring-jetty-adapter "1.7.1"]]
   :plugins [[lein-ring "0.12.5"]
             [lein-cljfmt "0.6.3"]]
+  :ring {:handler async-http-demo.handler/app
+         :async?  true}
   :main async-http-demo.core
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
