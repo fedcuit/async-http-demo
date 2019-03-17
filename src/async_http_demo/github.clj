@@ -1,13 +1,6 @@
 (ns async-http-demo.github
-  (:require [clj-http.client :as client]
-            [promesa.core :as p]))
-
-(defn- async-get
-  "Async executes the HTTP request corresponding to the given map and returns a promise of the response map."
-  [url]
-  (p/promise (fn [resolve reject]
-               (client/get url {:async? true :as :json}
-                           (fn [response] (resolve (:body response))) reject))))
+  (:require
+   [async-http-demo.http-client :refer [async-get]]))
 
 (defn followers
   "Returns followers of the given user."
